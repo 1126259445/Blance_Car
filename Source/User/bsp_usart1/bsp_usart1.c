@@ -1,6 +1,8 @@
 #include "bsp_usart1.h"
 
+
 int Flag_Qian,Flag_Hou,Flag_Left,Flag_Right;
+
 
 void USART1_Config(void)
 {
@@ -62,17 +64,18 @@ void USART1_IRQHandler(void)
 	uint8_t uart_receive;
 	if(USART_GetITStatus(USART1,USART_IT_RXNE)!=RESET)
 	{
-    uart_receive=USART_ReceiveData(USART1);
-	if(uart_receive>10)  //默认使用app为：MiniBalanceV3.5 因为MiniBalanceV3.5的遥控指令为A~H 其HEX都大于10
-	{			
-		if(uart_receive==0x5A)	Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////刹车
-		else if(uart_receive==0x41)	Flag_Qian=1,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////前
-		else if(uart_receive==0x45)	Flag_Qian=0,Flag_Hou=1,Flag_Left=0,Flag_Right=0;//////////////后
-		else if(uart_receive==0x42||uart_receive==0x43||uart_receive==0x44)	
-													Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=1;  //左
-		else if(uart_receive==0x46||uart_receive==0x47||uart_receive==0x48)	    //右
-													Flag_Qian=0,Flag_Hou=0,Flag_Left=1,Flag_Right=0;
-		else Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////刹车
-	}
+		uart_receive=USART_ReceiveData(USART1);
+		if(uart_receive>10)  //默认使用app为：MiniBalanceV3.5 因为MiniBalanceV3.5的遥控指令为A~H 其HEX都大于10
+		{			
+			if(uart_receive==0x5A)	Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////刹车
+			else if(uart_receive==0x41)	Flag_Qian=1,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////前
+			else if(uart_receive==0x45)	Flag_Qian=0,Flag_Hou=1,Flag_Left=0,Flag_Right=0;//////////////后
+			else if(uart_receive==0x42||uart_receive==0x43||uart_receive==0x44)	
+														Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=1;  //左
+			else if(uart_receive==0x46||uart_receive==0x47||uart_receive==0x48)	    //右
+														Flag_Qian=0,Flag_Hou=0,Flag_Left=1,Flag_Right=0;
+			else Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////刹车
+		}
   }
 }
+

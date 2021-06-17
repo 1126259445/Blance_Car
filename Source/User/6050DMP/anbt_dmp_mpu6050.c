@@ -20,14 +20,14 @@
 // unsigned char more;
 // unsigned long sensor_timestamp;
 // /////////////////******************************//////////// ///// ////////   
-     #define q30  1073741824.0f
-     float q0=1.0f,q1=0.0f,q2=0.0f,q3=0.0f;
-		 unsigned long sensor_timestamp;
-		 short gyro[3], accel[3], sensors;
-		 unsigned char more;
-		 long quat[4];
-		 float Yaw=0.00;
-	   float Roll,Pitch;
+#define q30  1073741824.0f
+float q0=1.0f,q1=0.0f,q2=0.0f,q3=0.0f;
+unsigned long sensor_timestamp;
+short gyro[3], accel[3], sensors;
+unsigned char more;
+long quat[4];
+float Yaw=0.00;
+float Roll,Pitch;
  
 void MPU6050_Pose()
 {

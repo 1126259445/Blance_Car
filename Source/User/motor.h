@@ -42,11 +42,14 @@ typedef struct
 	Sensor_t *Sensor;
 	Speed_t *Speed;
 	Pwm_t	*Pwm;
+	
+	int Flag_Stop;
+	int	pick;
 }Car_t;
 extern Car_t Blance_Car;
 
 
-extern int Flag_Stop,pick;
+//extern int Flag_Stop,pick;
 
 
 

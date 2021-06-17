@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Source\FreeRTOS\include;.\Source\Libraries\CMSIS;.\Source\Libraries\FWlib\inc;.\Source\User\6050DMP;.\Source\User\bsp_usart1;.\Source\User\DATASCOPE;.\Source\User\encoder;.\Source\User\motor;.\Source\User\pwm;.\Source\User;.\Source\FreeRTOS\portable\RVDS\ARM_CM3</IncludePath>
+              <IncludePath>.\Source\FreeRTOS\include;.\Source\Libraries\CMSIS;.\Source\Libraries\FWlib\inc;.\Source\User\6050DMP;.\Source\User\bsp_usart1;.\Source\User\DATASCOPE;.\Source\User;.\Source\FreeRTOS\portable\RVDS\ARM_CM3;.\Source\driver</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -388,6 +388,11 @@
               <FilePath>.\Source\User\main.c</FilePath>
             </File>
             <File>
+              <FileName>stm32f10x_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\User\stm32f10x_it.c</FilePath>
+            </File>
+            <File>
               <FileName>anbt_dmp_driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Source\User\6050DMP\anbt_dmp_driver.c</FilePath>
@@ -413,24 +418,34 @@
               <FilePath>.\Source\User\DATASCOPE\DataScope_DP.C</FilePath>
             </File>
             <File>
-              <FileName>encoder.c</FileName>
+              <FileName>afx_math.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Source\User\encoder\encoder.c</FilePath>
+              <FilePath>.\Source\User\afx_math.c</FilePath>
             </File>
             <File>
               <FileName>motor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Source\User\motor\motor.c</FilePath>
+              <FilePath>.\Source\User\motor.c</FilePath>
             </File>
             <File>
-              <FileName>pwm_out.c</FileName>
+              <FileName>radio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Source\User\pwm\pwm_out.c</FilePath>
+              <FilePath>.\Source\User\radio.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x_it.c</FileName>
+              <FileName>general_link.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Source\User\stm32f10x_it.c</FilePath>
+              <FilePath>.\Source\User\general_link.c</FilePath>
+            </File>
+            <File>
+              <FileName>pid_countrol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\User\pid_countrol.c</FilePath>
+            </File>
+            <File>
+              <FileName>speed_.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\User\speed_.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -621,6 +636,26 @@
               <FileName>port.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Source\FreeRTOS\portable\RVDS\ARM_CM3\port.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DRIVER</GroupName>
+          <Files>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\driver\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm_out.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\driver\pwm_out.c</FilePath>
+            </File>
+            <File>
+              <FileName>serial.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\driver\serial.c</FilePath>
             </File>
           </Files>
         </Group>

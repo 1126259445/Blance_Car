@@ -54,7 +54,7 @@ static void TIM3_Mode_Config(void)
 	TIM_ARRPreloadConfig(TIM3,ENABLE);                        //自动装载重装载寄存器
 	TIM_Cmd(TIM3,ENABLE);	                                    //TIM3使能
 	
-	TIM_ITConfig(TIM3,TIM_IT_Update,ENABLE);                  //PWM波中断使能
+	TIM_ITConfig(TIM3,TIM_IT_Update,DISABLE);                  //PWM波中断使能
 	NVIC_Timer3_Config();                                     //定时器3中断嵌套配置
 }
 
@@ -62,6 +62,14 @@ void TIM3_Config(void)
 {
 	TIM3_GPIO_Config();
 	TIM3_Mode_Config();
+}
+
+void TIM3_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM3,TIM_IT_Update)!=RESET)
+	{
+		TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
+	}
 }
 
 

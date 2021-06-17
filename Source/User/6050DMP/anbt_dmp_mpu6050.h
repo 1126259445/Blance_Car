@@ -14,6 +14,8 @@
 //#define   AnBT_Uart1_Send_String	AnBT_Uart1_Send_Num
 #define q30  1073741824.0f
 extern float Pitch,Roll,Yaw;
+extern short gyro[3];
+extern short accel[3];
 
 void MPU6050_Pose(void);
 #define BIT_I2C_MST_VDDIO   (0x80)
